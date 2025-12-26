@@ -10,14 +10,14 @@
   <div class="navigationgauche">
    <img class="logonexcent"src="./assets/logos/LogoNexcent.png">
   </div>
-  <div class="navigationdroite">
-   <a class="Home">Home</a>
-   <a class="Features">Features</a>
-   <a class="Community">Community</a>
-   <a class="Blog">Blog</a>
-   <a class="Pricing">Pricing</a>
-   <button class="buttonnav">Register Now<img class="fleche" src="./assets/logos/fleche.png.png"></button>
-  </div>
+  <ul class="navigationdroite">
+   <li class="nav"><a href="#"><a>Features</a></li>
+   <li class="nav"><a href="#"><a>Community</a></li>
+   <li class="nav"><a href="#"><a>Blog</a></li>
+   <li class="nav"><a href="#"><a>Pricing</a></li>
+   <li> <a href="#" class="buttonnav">Register Now <img class="fleche" src="./assets/images/fleche.png"></a>
+   </li>
+  </ul>
  </nav> 
 </header>
 <body>
@@ -62,20 +62,22 @@ display: flex;
 align-items: center;
 text-align: center;
 gap:10px;
-
+list-style: none;
 }
 
+
 .buttonnav {
-background-color: #4CAF4F;
-color: #FFFFFF;
-border-radius: 3px;
-border: #4CAF4F;
-height:37px;
-display: flex;            /* aligne le texte + l’image */
-align-items: center;      /* centre verticalement */
-justify-content: center;  /* centre horizontalement */
-gap: 8px;                 /* espace entre le texte et la flèche */
-padding: 0 12px; 
+  background-color: #4CAF4F;
+  color: #FFFFFF;
+  border-radius: 3px;
+  border: none;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
+  text-decoration: none; 
 }
 
 
