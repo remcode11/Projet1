@@ -5,10 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<header>
+<nav class="navigationNexcent container">
+  <div class="navigationgauche">
+   <img class="logonexcent"src="./assets/logos/LogoNexcent.png">
+  </div>
+  <div class="navigationdroite">
+   <a class="Home">Home</a>
+   <a class="Features">Features</a>
+   <a class="Community">Community</a>
+   <a class="Blog">Blog</a>
+   <a class="Pricing">Pricing</a>
+   <button class="buttonnav">Register Now<img class="fleche" src="./assets/logos/fleche.png.png"></button>
+  </div>
+ </nav> 
+</header>
 <body>
-    <h1>Hello World</h1>
-
-    <p>paragraphe exemple</p>
-    <p>2eme paragraphe test</p>
+    
 </body>
 </html>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+
+.container{
+margin: 0 auto;
+padding:0px 20px;
+width: 1200px;
+font-family: "Oswald", sans-serif;
+font-optical-sizing: auto;
+font-weight: <weight>;
+font-style: normal;
+}
+
+ 
+
+
+.navigationNexcent {
+display:flex;
+justify-content: space-around;
+background-color: #FFFFFF;
+height:59px;
+}
+
+.navigationgauche {
+display: flex;
+align-items: center;
+text-align: center;
+}
+
+.navigationdroite {
+display: flex;
+align-items: center;
+text-align: center;
+gap:10px;
+
+}
+
+.buttonnav {
+background-color: #4CAF4F;
+color: #FFFFFF;
+border-radius: 3px;
+border: #4CAF4F;
+height:37px;
+display: flex;            /* aligne le texte + l’image */
+align-items: center;      /* centre verticalement */
+justify-content: center;  /* centre horizontalement */
+gap: 8px;                 /* espace entre le texte et la flèche */
+padding: 0 12px; 
+}
+
+
+
+
+
+
+</style>
