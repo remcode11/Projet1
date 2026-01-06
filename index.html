@@ -9,18 +9,29 @@
 
 <body>
   <!-- HEADER NAVIGATION -->
-  <!-- TODO: maqué la navigation et le bouton du header en mode mobile pour ne laisser que le logo  -->
   <header>
     <nav class="navigationNexcent container">
       <div class="navigationgauche">
-        <img class="logonexcent" src="./assets/logos/LogoNexcent.png">
+        <img class="logonexcent" src="./assets/logos/LogoNexcent.png" alt="Nexcent">
       </div>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+      <label for="nav-toggle" class="burger" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
       <ul class="navigationdroite">
-        <li class="nav"><a href="#"><a>Features</a></li>
-        <li class="nav"><a href="#"><a>Community</a></li>
-        <li class="nav"><a href="#"><a>Blog</a></li>
-        <li class="nav"><a href="#"><a>Pricing</a></li>
-        <li> <a href="#" class="buttonnav">Register Now <img class="fleche" src="./assets/images/fleche.png"></a>
+        <li class="nav"><a href="#">Features</a></li>
+        <li class="nav"><a href="#">Community</a></li>
+        <li class="nav"><a href="#">Blog</a></li>
+        <li class="nav"><a href="#">Pricing</a></li>
+        <li>
+          <a href="#" class="buttonnav">
+            Register Now <img class="fleche" src="./assets/images/fleche.png" alt="">
+          </a>
         </li>
       </ul>
     </nav>
@@ -302,68 +313,376 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-  /* --- "Bootstrap-like" breakpoints (inspirés) ---
+  /* RESET CSS */
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* --- Responsive Breakpoint Mobil First ---
    sm: 576px
    md: 768px
    lg: 992px
    xl: 1200px
    xxl: 1400px
-*/
-
-/*laptop*/
-
- 
+  */
 
   .container {
     margin: 0 auto;
-    padding: 0px 100px;
+    padding: 0px 12px;
     width: 100%;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
+
+    @media (min-width: 768px) {
+      max-width: 720px;
+    }
+
+    @media (min-width: 992px) {
+      max-width: 960px;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 1140px;
+    }
+
+    @media (min-width: 1400px) {
+      max-width: 1320px;
+    }
   }
 
-  .hero {
-    background-color: #F5F7F1;
+  /* Navigation Header */
+  /* Checkbox cachée (état open/close) */
+  .nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
   }
 
+  /* Header */
+  header {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  /* Container (si tu n’as pas déjà un container global) */
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+
+  /* Nav wrapper */
   .navigationNexcent {
+    position: relative;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    height: 59px;
-    font-weight: 350;
-    font-style: normal; 
-    
-
+    min-height: 72px;
+    gap: 16px;
   }
 
+  /* Logo */
   .navigationgauche {
     display: flex;
     align-items: center;
-    text-align: center;
   }
 
+  .logonexcent {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+
+  /* Burger (mobile first) */
+  .burger {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+
+    border: 1px solid #e8e8e8;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  .burger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #111;
+    border-radius: 999px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  /* Burger -> croix / Animation CSS */
+  .nav-toggle:checked+.burger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle:checked+.burger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked+.burger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Menu (mobile) */
   .navigationdroite {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
     list-style: none;
-    font-size: 17px;
+    margin: 0;
+    padding: 12px;
+
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 16px;
+    right: 16px;
+
+    display: grid;
+    gap: 10px;
+
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
+  /* Ouverture du menu , ici tu remarquera l'utilisation du symbole ~ cela signifie qu on applique a toutesles div voisine suivante */
+  .nav-toggle:checked~.navigationdroite {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 
+  /* Liens */
+  .navigationdroite {
+    @media (min-width: 992px) {
+      position: static;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      text-decoration: none;
+      color: #111;
+      font-size: 16px;
+      padding: 12px 12px;
+      border-radius: 10px;
+
+      @media (min-width: 992px) {
+        padding: 8px 10px;
+        border-radius: 0px;
+      }
+
+      &:hover {
+        background: #338436;
+      }
+    }
+  }
+
+  .navigationdroite .nav a {
+    color: #4b5563;
+  }
+
+  .navigationdroite .nav a:hover {
+    background: #f6f7f8;
+    color: #111;
+  }
+
+  /* CTA bouton */
   .buttonnav {
     background-color: #4CAF4F;
-    color: #FFFFFF;
-    border-radius: 3px;
+    color: #fff !important;
     border: none;
-    height: 37px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 0 12px;
+    gap: 10px;
+    padding: 12px 14px;
     text-decoration: none;
+
+    @media (min-width: 992px) {
+      padding: 10px 14px;
+    }
+  }
+
+  .buttonnav:hover {
+    filter: brightness(0.98);
+  }
+
+  .fleche {
+    height: 14px;
+    width: auto;
+    display: block;
+  }
+
+  /* Focus clavier propre */
+  .navigationdroite a:focus-visible,
+  .burger:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+  }
+
+
+
+  .hero {
+    background-color: #F5F7F1;
   }
 
   .divdeux {
@@ -948,11 +1267,11 @@
 
     position: relative;
     object-fit: cover;
-    width: 100%;  
+    width: 100%;
 
   }
 
- .curseur {
+  .curseur {
 
     position: absolute;
 
@@ -962,14 +1281,9 @@
 
   }
 
-  @media screen and  (max-widht:1200px)
-  .container { width: 90%;
-    
+  @media screen and (max-width:1200px) {
+    .container {
+      width: 90%;
+    }
   }
-
-
-
-
-
 </style>
-
